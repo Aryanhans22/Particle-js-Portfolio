@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const message = messageInput.value.trim();
 
         // Regular expression for checking if the name contains only alphabets
-        const nameRegex = /^[A-Za-z]+$/;
+        const nameRegex = /^[A-Za-z\s]+$/;
 
         // Regular expression for checking if the email is valid
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
