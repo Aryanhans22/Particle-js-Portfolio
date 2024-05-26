@@ -80,12 +80,12 @@ document.addEventListener('DOMContentLoaded', function () {
         // Validation logic
         const nameInput = document.querySelector('input[name="name"]');
         const emailInput = document.querySelector('input[name="email"]');
-        const subjectInput = document.querySelector('input[name="subject"]');
+        const phoneInput = document.querySelector('input[name="phone"]');
         const messageInput = document.querySelector('textarea[name="message"]');
 
         const name = nameInput.value.trim();
         const email = emailInput.value.trim();
-        const subject = subjectInput.value.trim();
+        const phone = subjectInput.value.trim();
         const message = messageInput.value.trim();
 
         // Regular expression for checking if the name contains only alphabets
@@ -103,6 +103,12 @@ document.addEventListener('DOMContentLoaded', function () {
             nameInput.focus();
             return;
         }
+        //phone
+        phoneInput.addEventListener("input", function() {
+            if (phoneInput.value.length > 10) {
+              phoneInput.value = phoneInput.value.slice(0, 10);
+            }
+          });
 
         // Check if email is valid
         if (!emailRegex.test(email)) {
@@ -113,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Check if all fields are filled
-        if (name === '' || email === '' || subject === '' || message === '') {
+        if (name === '' || email === '' || phone === '' || message === '') {
             alert('Please fill in all fields.');
             isValid = false;
             return;
